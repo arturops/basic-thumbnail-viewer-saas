@@ -1,6 +1,12 @@
 'use client';
 import Link from 'next/link';
 import { ModeToggle } from './theme-toggle';
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignOutButton,
+} from '@clerk/nextjs';
 
 export const Navbar = () => {
   const isSignedIn = true;
@@ -30,7 +36,12 @@ export const Navbar = () => {
         </div>
         <div className="space-x-4 flex items-center">
           <ModeToggle />
-          {isSignedIn ? <a>Sign Out</a> : <a>Sign Out</a>}
+          <SignedIn>
+            <SignOutButton />
+          </SignedIn>
+          <SignedOut>
+            <SignInButton />
+          </SignedOut>
         </div>
       </div>
     </nav>
