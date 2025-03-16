@@ -1,7 +1,14 @@
+'use client';
+
 import { SignUp } from '@clerk/nextjs';
 import Link from 'next/link';
+import { dark } from '@clerk/themes';
+import { useTheme } from 'next-themes';
 
 export default function Page() {
+  // returns the system resolved theme
+  const { resolvedTheme } = useTheme();
+
   return (
     <div className="mt-24 flex items-center justify-center flex-col space-y-12">
       <div className="text-center">
@@ -14,15 +21,26 @@ export default function Page() {
       </div>
       <SignUp
         appearance={{
+          baseTheme: resolvedTheme === 'dark' ? dark : undefined,
           elements: {
-            card: 'bg-card border border-border shadow-lg rounded-xl p-6',
-            footer: { display: 'none' },
+            //cardBox: 'bg-card border border-border shadow-lg rounded-xl p-6',
+            //card: 'bg-card border border-border shadow-lg rounded-xl p-6',
+            // dividerLine: 'border-border',
+            // dividerText: 'text-white font-bold',
+            // formFieldInput__emailAddress: {
+            //   // placeholderColor: 'placeholder-black',
+            //   backgroundColor: 'white',
+            // },
+            //formField: { color: 'black' }, //'placeholder-black',
+            //formFieldInput: 'text-black',
+            //formFieldLabel: 'text-foreground',
             headerTitle: 'hidden',
             headerSubtitle: 'text-muted-foreground',
-            socialButtonsBlockButton__google: 'bg-white hoever:bg-white/60',
-            dividerText: 'text-muted-foreground',
-            dividerLine: 'border-border',
-            formFieldLabel: 'text-foreground',
+            socialButtons:
+              'bg-white hoever:bg-white/60 border border-border rounded-lg',
+            socialButtonsBlockButtonText__google: { color: 'black' },
+
+            footer: { display: 'none' },
           },
         }}
         forceRedirectUrl="/dashboard"
