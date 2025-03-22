@@ -23,21 +23,10 @@ export default function Page() {
         appearance={{
           baseTheme: resolvedTheme === 'dark' ? dark : undefined,
           elements: {
-            //cardBox: 'bg-card border border-border shadow-lg rounded-xl p-6',
-            //card: 'bg-card border border-border shadow-lg rounded-xl p-6',
-            // dividerLine: 'border-border',
-            // dividerText: 'text-white font-bold',
-            // formFieldInput__emailAddress: {
-            //   // placeholderColor: 'placeholder-black',
-            //   backgroundColor: 'white',
-            // },
-            //formField: { color: 'black' }, //'placeholder-black',
-            //formFieldInput: 'text-black',
-            //formFieldLabel: 'text-foreground',
             headerTitle: 'hidden',
             headerSubtitle: 'text-muted-foreground',
             socialButtons:
-              'bg-white hoever:bg-white/60 border border-border rounded-lg',
+              'bg-white hover:bg-white/80 border border-border rounded-lg',
             socialButtonsBlockButtonText__google: { color: 'black' },
 
             footer: { display: 'none' },
@@ -47,7 +36,10 @@ export default function Page() {
       />
       <p className="mt-2 text-lg text-muted-foreground">
         Already have an account?{' '}
-        <Link href="/sign-in" className="underline font-bold">
+        <Link
+          href="/sign-in"
+          className="underline font-bold text-foreground hover:text-primary/60"
+        >
           Sign in
         </Link>
       </p>
