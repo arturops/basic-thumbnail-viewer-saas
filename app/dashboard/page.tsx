@@ -20,7 +20,7 @@ export default async function Dashboard() {
   if (subscription?.status === 'active') {
     return (
       <div className="flex flex-col items-center justify-center p-8 rounded-lg shadow-md">
-        <p className="text-xl  mb-6">You are subcribed!</p>
+        <p className="text-xl  mb-6">You are subscribed!</p>
         <ThumbnailPreviewer channelNameSaved="test" />
       </div>
     );
