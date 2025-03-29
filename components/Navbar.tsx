@@ -6,10 +6,11 @@ import {
   SignedOut,
   SignInButton,
   SignOutButton,
+  useUser,
 } from '@clerk/nextjs';
 
 export const Navbar = () => {
-  const isSignedIn = true;
+  const { isSignedIn } = useUser();
 
   return (
     <nav className="bg-background border-b px-12">
