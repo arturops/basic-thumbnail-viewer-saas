@@ -87,8 +87,10 @@ export default async function Pricing() {
       return redirect('/sign-in?redirect_url=/pricing');
     }
 
+    const customerStripeId = subscription?.user.stripeCustomerId;
+
     const customerPortalUrl = await stripe.billingPortal.sessions.create({
-      customer: userId,
+      customer: customerStripeId as string,
       return_url:
         process.env.NODE_ENV === 'production'
           ? (process.env.PRODUCTION_URL as string)
