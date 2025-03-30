@@ -226,8 +226,29 @@ export default function ThumbnailPreviewer({
         <div className="mb-6 flex items-center space-x-4 max-w-[1200px] mx-auto">
           <Button onClick={randomizeOrder}>Randomize Order</Button>
           <div className="flex items-center space-x-2 rounded-full p-1 shadow-sm">
-            <Button>
+            <Button
+              variant={layout === 'desktop' ? 'default' : 'ghost'}
+              size="icon"
+              onClick={() => setLayout('desktop')}
+              aria-label="Desktop Layout"
+            >
               <Laptop className="h-4 w-4" />
+            </Button>
+            <Button
+              variant={layout === 'tablet' ? 'default' : 'ghost'}
+              size="icon"
+              onClick={() => setLayout('tablet')}
+              aria-label="Tablet Layout"
+            >
+              <Tablet className="h-4 w-4" />
+            </Button>
+            <Button
+              variant={layout === 'mobile' ? 'default' : 'ghost'}
+              size="icon"
+              onClick={() => setLayout('mobile')}
+              aria-label="Mobile Layout"
+            >
+              <Smartphone className="h-4 w-4" />
             </Button>
           </div>
         </div>
