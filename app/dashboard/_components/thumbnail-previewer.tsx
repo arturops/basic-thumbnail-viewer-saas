@@ -252,6 +252,30 @@ export default function ThumbnailPreviewer({
             </Button>
           </div>
         </div>
+
+        {/* Video cards for thumbnail previewing */}
+        <div
+          className={`grid ${getGridClass()} gap-6 ${
+            layout === 'mobile' ? 'w-full' : ''
+          }`}
+        >
+          {videos.map((video, index) => (
+            <div
+              key={index}
+              className={`overflow-hidden shadow-lg rounded-lg ${
+                layout === 'mobile' ? 'max-w-[340px] mx-auto' : ''
+              }`}
+            >
+              <div className="relative pb-60">
+                <img
+                  src={video.thumbnail || placeholderImage}
+                  alt="video thumbnail"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
