@@ -263,7 +263,7 @@ export default function ThumbnailPreviewer({
             <div
               key={index}
               className={`overflow-hidden shadow-lg rounded-lg ${
-                layout === 'mobile' ? 'max-w-[340px] mx-auto' : ''
+                layout === 'mobile' ? 'max-w-[340px] mx-auto w-full' : ''
               }`}
             >
               <div className="relative pb-60">
@@ -272,6 +272,28 @@ export default function ThumbnailPreviewer({
                   alt="video thumbnail"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
+              </div>
+              <div className="p-4">
+                <div className="flex items-start space-x-3">
+                  <div className="flex-shrink-0">
+                    <img
+                      src={video.thumbnail || placeholderImage}
+                      alt="channel avatar"
+                      className="w-9 h-9 rounded-full"
+                    />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-medium truncate font-heading text-[#F1F1F1]">
+                      {video.title}
+                    </p>
+                    <p className="text-sm text-[#aaaaaa]">
+                      {video.channel || channelNameSaved}
+                    </p>
+                    <p className="text-sm text-[#aaaaaa]">
+                      {video.views} views • {video.age}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           ))}
